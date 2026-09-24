@@ -1,0 +1,4 @@
+src/components/ui
+src/lib/supabase/database.types.ts
+pnpm-lock.yaml
+.next

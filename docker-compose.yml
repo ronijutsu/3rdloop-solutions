@@ -1,0 +1,15 @@
+# Local services for 3rdLoop Solutions.
+# Supabase runs separately via `npx supabase start`.
+# Start with: pnpm crawler   (reads CRAWL4AI_API_TOKEN from .env.local)
+services:
+  crawl4ai:
+    image: unclecode/crawl4ai:latest
+    ports:
+      - "127.0.0.1:11235:11235"
+    environment:
+      # crawl4ai binds to loopback by default; listen on all container interfaces
+      # so the port mapping works. It refuses a non-loopback bind without a token.
+      GUNICORN_BIND: "0.0.0.0:11235"
+      CRAWL4AI_API_TOKEN: ${CRAWL4AI_API_TOKEN:?Set CRAWL4AI_API_TOKEN in .env.local (openssl rand -hex 32)}
+    shm_size: "1g"
+    restart: unless-stopped
