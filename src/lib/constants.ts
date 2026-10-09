@@ -7,6 +7,7 @@ export const TEMPLATE_CATEGORIES = [
   { value: "proposal", label: "Proposal" },
   { value: "sop", label: "SOP" },
   { value: "research", label: "Research" },
+  { value: "internship", label: "Internship" },
   { value: "other", label: "Other" },
 ]
 
