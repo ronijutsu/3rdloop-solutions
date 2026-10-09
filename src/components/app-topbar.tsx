@@ -1,6 +1,6 @@
 "use client"
 
-import { PlusIcon, SearchIcon } from "lucide-react"
+import { GraduationCapIcon, PlusIcon, SearchIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState, useTransition } from "react"
 import { toast } from "sonner"
@@ -44,7 +44,7 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Spinner } from "@/components/ui/spinner"
-import { NAV, QUICK_ADD, type QuickAddItem } from "@/lib/navigation"
+import { INTERNSHIP_URL, NAV, QUICK_ADD, type QuickAddItem } from "@/lib/navigation"
 
 /** Sticky top bar: sidebar toggle, jump-to palette (Ctrl/⌘ K), quick add, notifications, theme. */
 export function AppTopbar() {
@@ -89,6 +89,16 @@ export function AppTopbar() {
       </Button>
 
       <div className="ml-auto flex items-center gap-1">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="gap-1.5"
+          render={<a href={INTERNSHIP_URL} target="_blank" rel="noopener noreferrer" />}
+          aria-label="Internship Program (opens in a new tab)"
+        >
+          <GraduationCapIcon data-icon="inline-start" />
+          <span className="hidden md:inline">Internships</span>
+        </Button>
         {creatable.length > 0 && (
           <DropdownMenu>
             <DropdownMenuTrigger render={<Button size="sm" className="gap-1.5" />}>
