@@ -1,6 +1,6 @@
 "use client"
 
-import { ExternalLinkIcon, LogOutIcon, SettingsIcon } from "lucide-react"
+import { LogOutIcon, SettingsIcon } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -61,17 +61,10 @@ export function AppSidebar({ name, email, roleName }: { name: string; email: str
                     <SidebarMenuButton
                       tooltip={item.title}
                       isActive={isActive(pathname, item.href)}
-                      render={
-                        item.external ? (
-                          <a href={item.href} target="_blank" rel="noopener noreferrer" />
-                        ) : (
-                          <Link href={item.href} />
-                        )
-                      }
+                      render={<Link href={item.href} />}
                     >
                       <item.icon />
                       <span>{item.title}</span>
-                      {item.external && <ExternalLinkIcon className="ml-auto size-3.5 text-muted-foreground" />}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

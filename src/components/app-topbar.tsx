@@ -79,7 +79,7 @@ export function AppTopbar() {
       <Separator orientation="vertical" className="mx-1 h-5" />
       <Button
         variant="outline"
-        className="h-9 w-full max-w-72 min-w-0 shrink justify-start gap-2 px-3 font-normal text-muted-foreground"
+        className="h-9 w-full min-w-0 max-w-72 shrink justify-start gap-2 px-3 font-normal text-muted-foreground"
         onClick={() => setPaletteOpen(true)}
         aria-label="Jump to a page or create something"
       >
@@ -145,13 +145,12 @@ export function AppTopbar() {
                   value={`go ${p.title}`}
                   onSelect={() => {
                     setPaletteOpen(false)
-                    if (p.external) window.open(p.href, "_blank", "noopener,noreferrer")
-                    else router.push(p.href)
+                    router.push(p.href)
                   }}
                 >
                   <p.icon />
                   {p.title}
-                  <CommandShortcut>{p.external ? new URL(p.href).host : p.href}</CommandShortcut>
+                  <CommandShortcut>{p.href}</CommandShortcut>
                 </CommandItem>
               ))}
             </CommandGroup>
