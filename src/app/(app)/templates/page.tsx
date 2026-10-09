@@ -27,7 +27,7 @@ export default async function TemplatesPage() {
     <>
       <PageHeader
         title="Templates"
-        description="Reusable starting points for internal work: B2B and B2C scripts, lead-gen sequences, proposals, SOPs."
+        description="Reusable starting points for internal work: B2B and B2C scripts, lead-gen sequences, proposals, SOPs, internship documents."
         actions={
           can("templates.edit") && (
             <form action={createTemplate}>
