@@ -7,6 +7,7 @@ import {
   FolderKanbanIcon,
   FolderOpenIcon,
   GaugeIcon,
+  GraduationCapIcon,
   HandshakeIcon,
   LayoutDashboardIcon,
   LayoutTemplateIcon,
@@ -25,7 +26,17 @@ import {
 
 import type { Permission } from "@/lib/permissions"
 
-export type NavItem = { title: string; href: string; icon: LucideIcon; permission?: Permission }
+export type NavItem = {
+  title: string
+  href: string
+  icon: LucideIcon
+  permission?: Permission
+  /** Another site: opens in a new tab instead of client-side navigation. */
+  external?: boolean
+}
+
+/** The internship program site (separate app: ronijutsu/internship-3rdloop-solutions). */
+export const INTERNSHIP_URL = process.env.NEXT_PUBLIC_INTERNSHIP_URL || "https://internship.3rdloopsolutions.com"
 
 export const NAV: { label: string; items: NavItem[] }[] = [
   {
@@ -72,6 +83,7 @@ export const NAV: { label: string; items: NavItem[] }[] = [
       { title: "Networking Hub", href: "/network", icon: HandshakeIcon, permission: "network.view" },
       { title: "Content Planner", href: "/content", icon: CalendarRangeIcon, permission: "content.view" },
       { title: "Financial Tracker", href: "/finance", icon: WalletIcon, permission: "finance.view" },
+      { title: "Internship Program", href: INTERNSHIP_URL, icon: GraduationCapIcon, external: true },
     ],
   },
 ]
