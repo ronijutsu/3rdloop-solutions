@@ -105,11 +105,11 @@ export function CompaniesContacts({
           searchKeys={["full_name", "email", "title"]}
           columns={[
             { header: "Name", cell: (c) => <span className="font-medium">{c.full_name}</span> },
-            { header: "Title", cell: (c) => c.title ?? "—", className: "hidden md:table-cell" },
+            { header: "Title", cell: (c) => c.title ?? "—", className: "hidden whitespace-normal lg:table-cell" },
             { header: "Company", cell: (c) => c.company?.name ?? "—" },
             {
               header: "Email",
-              className: "hidden lg:table-cell",
+              className: "hidden whitespace-nowrap xl:table-cell",
               cell: (c) =>
                 c.email ? (
                   <a href={`mailto:${c.email}`} className="text-primary hover:underline">
@@ -119,7 +119,7 @@ export function CompaniesContacts({
                   "—"
                 ),
             },
-            { header: "Phone", cell: (c) => c.phone ?? "—", className: "hidden lg:table-cell" },
+            { header: "Phone", cell: (c) => c.phone ?? "—", className: "hidden whitespace-nowrap xl:table-cell" },
           ]}
         />
       </TabsContent>
